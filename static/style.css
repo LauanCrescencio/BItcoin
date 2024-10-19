@@ -29,7 +29,7 @@ p {
 }
 
 .content {
-    text-align: center;
+    text-align:center;
     padding: 50px;
 }
 
@@ -61,4 +61,30 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+#bitcoin{
+    text-align: left;
+}
+#Etherum{
+    text-align: center;
+}
+#Dolar{
+    align-items: right;
+}
+.container {
+    display: flex;
+    justify-content: space-around; /* Espaço entre os itens */
+    align-items: flex-start; /* Alinha os itens no topo */
+    flex-wrap: wrap; /* Faz com que os itens sejam quebrados em linhas se a tela for menor */
+    margin-top: 20px;
+}
+
+.box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%; /* Define a largura dos blocos */
+    margin: 10px;
 }

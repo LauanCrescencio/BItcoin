@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+</head>
+<body>
+
+    <header>
+        <h1>Bem-vindo ao Bitcoin Info</h1>
+        <p>A principal fonte de informações sobre Bitcoin</p>
+        <img src="{{url_for('static',filename='bitcoin20.png')}}" alt="Bitcoin">
+    </header>
+    <div class="container">
+        <div class="box">
+            <h3>Cotacao atual do Bitcoin</h3>
+            <p>O Valor atual do Bitcoin é {{btc_bid}} R$.</p>
+            <p>O seu valor máximo hoje foi {{btc_max}} R$</p>
+            <p>A Maior baixa do valor foi {{btc_min}} R$</p>
+            <p>Utilma atualizacao as {{Horario}}:{{minuto}}</p>
+        </div>
+    
+        <div class="box">
+            <h3>Cotacao atual do Etherum</h3>
+            <p>O Valor atual do Etherum é {{eth_bid}} R$.</p>
+            <p>O seu valor máximo hoje foi {{eth_max}} R$</p>
+            <p>A Maior baixa do valor foi de {{eth_low}}</p>
+            <p>Utilma atualizacao as {{Horario}}:{{minuto}}</p>
+        </div>
+    
+        <div class="box">
+            <h3>Cotacao atual do Dolar</h3>
+            <p>O Valor atual do Dolar é {{dolar_bid}} R$.</p>
+            <p>O seu valor máximo hoje foi de {{dolar_high}} R$</p>
+            <p>A Maior baixa do valor foi de {{dolar_low}}</p>
+            <p>Utilma atualizacao as {{Horario}}:{{minuto}}</p>
+        </div>
+    </div>
+    <div class="content">
+    <a href="/cadastro">Clique Aqui para se cadastrar</a>
+    </div>
+    <footer>
+
+        <p>© 2024 Bitcoin Info. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
