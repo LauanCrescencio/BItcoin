@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f7931a;
+    color: #ffffff;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.content {
+    text-align: center; /* Centraliza o conteúdo e o botão */
+}
+
+.content a {
+    margin: 20px 0;
+}
+
+.content p {
+    font-size: 18px;
+    color: #333333;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #f7931a;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    margin: 20px auto; /* Centraliza o botão com margem automática */
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    color: #777777;
+}
+

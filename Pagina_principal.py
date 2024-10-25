@@ -11,7 +11,7 @@ def Pegar_cotacao():
     global dolar
     global eth
     if(datetime.datetime.now().minute >= time_out):
-        time_out = datetime.datetime.now().minute + 20
+        time_out = datetime.datetime.now().minute + 3
         btc = requests.get("https://economia.awesomeapi.com.br/json/last/btc-brl").json()
         dolar = requests.get("https://economia.awesomeapi.com.br/json/last/usd-brl").json()
         eth = requests.get("https://economia.awesomeapi.com.br/json/last/eth-brl").json()
