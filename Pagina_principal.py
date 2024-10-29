@@ -1,6 +1,7 @@
 from flask import Blueprint,Flask,render_template
 import requests #type: ignore
 import datetime
+btc = requests.get("https://economia.awesomeapi.com.br/json/last/btc-brl").json()
 time_out = 0
 pagina_princial = Blueprint(__name__,"home")
 

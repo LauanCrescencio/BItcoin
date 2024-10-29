@@ -1,9 +1,12 @@
 import flask
 from Pagina_principal import pagina_princial
+from Salvar_email import app as comando
+
 
 app = flask.Flask(__name__)
 
 app.register_blueprint(pagina_princial,url_prefix="/")
+app.register_blueprint(comando)
 
 
 @app.route("/cadastro")
@@ -16,6 +19,7 @@ def enviando():
     nome = flask.request.form.get('Nome')
     email = flask.request.form.get("Email")
     return f"{nome} + {email}"
+
 
 
 
