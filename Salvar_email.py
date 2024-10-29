@@ -9,7 +9,7 @@ import smtplib
 from users_secretos import codigo,senha_db
 from Pagina_principal import btc
 app = Blueprint("comando",__name__)
-ultimo_registro_de_envio = ""
+
 def conectar_db():
     return pymysql.connect(host="127.0.0.1",
                     user="root",
@@ -140,7 +140,6 @@ def Enviar_email(addres : str, nome : str, coneccao_smtp : smtplib.SMTP):
         print("erro",e)
 
 def Funcao_principal():
-    global ultimo_registro_de_envio
     if not os.path.exists("arquivo_log.txt"):
         with open("arquivo_log.txt","w") as arquivo_log:
             arquivo_log.write("")
