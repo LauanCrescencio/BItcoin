@@ -29,7 +29,7 @@ def Pegar_cotacao():
                                     eth_max=eth["ETHBRL"]["high"],
                                     Horario=datetime.datetime.now().hour,
                                     minuto=datetime.datetime.now().minute
-                                    )
+                                    ),200
     else : 
       return render_template("index.html",btc_bid=btc["BTCBRL"]
                                   ["bid"],btc_min=btc["BTCBRL"]
@@ -42,6 +42,6 @@ def Pegar_cotacao():
                                     eth_low=eth["ETHBRL"]["low"],
                                     eth_max=eth["ETHBRL"]["high"],
                                     Horario=datetime.datetime.now().hour,
-                                    minuto=datetime.datetime.now().minute)
+                                    minuto=datetime.datetime.now().minute),200
 
 

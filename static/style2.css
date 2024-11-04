@@ -117,3 +117,23 @@ footer {
     }
 
 }
+
+#popup_yes{
+    visibility: hidden;
+    background-color: white;
+    text-align: center;
+    font-size: 2rem;
+    border: 5px solid rgb(65, 112, 56);
+    width: 50vw;
+    height: 40vh;
+    border-radius: 10px;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 1;
+} 
+#popup_yes > h1 {
+    margin-top: 20px;
+}

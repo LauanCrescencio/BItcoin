@@ -4,37 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoin</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='style2.css')}}">
-</head>
-<body>
+    <link rel="stylesheet" href="{{url_for('static', filename='style2.css')}}">
 </head>
 <body>
 
     <header>
         <h1>Cadastre-se!</h1>
     </header>
-
     <main>
-    <h2>Cadastre-se <br> para  mais informações</h2>
-        <form action="/Enviar" method="post">
-            <label for="name">Nome:</label>
-            <input type="text" name="Nome" required>
+        <h2>Cadastre-se <br> para mais informações</h2>
+        <form id="meuForm" method="POST">
+            <label for="nome">Nome:</label>
+            <input id="nome" type="text" name="nome" required>
             <br>
-            <!--input  nome-->
-            <label for="email">E-mail:</label> 
-            <input type="email" name="Email" required> 
-            <br>
-            <!--input E-mail-->
 
-            <div class="content" id="">
+            <label for="email">E-mail:</label>
+            <input id="email" name="email" required>
+            <br>
+
+            <div class="content" onclick="Enviando_Request()">
                 <button type="submit">Cadastrar</button>
             </div>
        </form> 
-       
     </main>
-    <img src="{{url_for('static',filename='bitcoin20-removebg-preview.png')}}" alt="Bitcoin"> 
+
+    <div id="popup_yes">
+        <h1>Parabéns!</h1>
+        <p>Seu cadastro foi um sucesso</p>
+        <button zid="btn_ok" type="button" onclick="popup_close()">OK</button>
+    </div>
+
+    <script>
+        function Enviando_Request() {
+            alert("ios"); // Alerta para confirmar que a função foi chamada
+            
+            // Impede o redirecionamento do formulário
+            event.preventDefault(); 
+    
+            // Coleta os dados do formulário
+            const form = document.getElementById('meuForm');
+            const formData = new FormData(form); // Cria um FormData a partir do formulário
+            
+            try {
+                // Envio dos dados usando fetch
+                fetch('/Enviar', {
+                    method: 'POST',
+                    body: formData // Envia os dados do formulário
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na requisição: ' + response.statusText);
+                    }
+                    return response.text(); // ou response.json() dependendo do que seu servidor retorna
+                })
+                .then(data => {
+                    alert(data)
+                    popup_open(); // Abre o popup se a requisição for bem-sucedida
+                })
+                .catch(error => {
+                    alert('Erro: ' + error.message); // Exibe o erro
+                });
+            } catch (error) {
+                alert('Erro: ' + error.message); // Exibe o erro se ocorrer
+            }
+        }
+        
+        var popup = document.getElementById('popup_yes');
+        
+        function popup_open() {
+            popup.style.visibility = "visible";
+        }
+        
+        function popup_close() {
+            popup.style.visibility = "hidden";
+        }
+    </script>
+    
+    <img src="{{url_for('static', filename='bitcoin20-removebg-preview.png')}}" alt="Bitcoin"> 
     <footer>
-        <p>© 2024 Bitcoin Info. Todos os direitos reservados.</p>
+        <p>© 2024 Projeto Bitcoin Info. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
