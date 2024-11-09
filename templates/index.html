@@ -6,8 +6,7 @@
     <title>Bitcoin</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
-<body>
-</head>
+
 <body>
 
     <header>
@@ -17,29 +16,29 @@
     </header>
     <div class="container">
         <div class="box">
-            <h3>Cotacao atual do Bitcoin</h3>
-            <p>O Valor atual do Bitcoin é {{btc_bid}} R$.</p>
-            <p>O seu valor máximo hoje foi {{btc_max}} R$</p>
-            <p>A Maior baixa do valor foi {{btc_min}} R$</p>
-            <p>Utilma atualizacao as {{Horario}}:{{minuto}}</p>
+            <h3>Cotação Atual do Bitcoin</h3>
+            <p><strong>Valor atual:</strong> {{btc_bid}} R$</p>
+            <p><strong>Valor máximo hoje:</strong> {{btc_max}} R$</p>
+            <p><strong>Maior baixa hoje:</strong> {{btc_min}} R$</p>
+            <p><small>Última atualização: {{Horario}}:{{minuto}}</small></p>
         </div>
     
         <div class="box">
-            <h3>Cotacao atual do Etherum</h3>
-            <p>O Valor atual do Etherum é {{eth_bid}} R$.</p>
-            <p>O seu valor máximo hoje foi {{eth_max}} R$</p>
-            <p>A Maior baixa do valor foi de {{eth_low}}</p>
-            <p>Utilma atualizacao as {{Horario}}:{{minuto}}</p>
+            <h3>Cotação Atual do Ethereum</h3>
+            <p><strong>Valor atual:</strong> {{eth_bid}} R$</p>
+            <p><strong>Valor máximo hoje:</strong> {{eth_max}} R$</p>
+            <p><strong>Maior baixa hoje:</strong> {{eth_low}} R$</p>
+            <p><small>Última atualização: {{Horario}}:{{minuto}}</small></p>
         </div>
     
         <div class="box">
-            <h3>Cotacao atual do Dolar</h3>
-            <p>O Valor atual do Dolar é {{dolar_bid}} R$.</p>
-            <p>O seu valor máximo hoje foi de {{dolar_high}} R$</p>
-            <p>A Maior baixa do valor foi de {{dolar_low}}</p>
-            <p>Utilma atualizacao as {{Horario}}:{{minuto}}</p>
+            <h3>Cotação Atual do Dólar</h3>
+            <p><strong>Valor atual:</strong> {{dolar_bid}} R$</p>
+            <p><strong>Valor máximo hoje:</strong> {{dolar_high}} R$</p>
+            <p><strong>Maior baixa hoje:</strong> {{dolar_low}} R$</p>
+            <p><small>Última atualização: {{Horario}}:{{minuto}}</small></p>
         </div>
-    </div>
+
     <div class="content">
     <a href="/cadastro">Clique Aqui para se cadastrar</a>
     </div>
