@@ -4,17 +4,11 @@ import os
 from time import sleep
 import threading
 from flask import Blueprint
-import pymysql
+from Database.database import Usuarios
 import smtplib
-from users_secretos import codigo,senha_db
-from Pagina_principal import btc
+from codigos_adicionais.users_secretos import codigo
+from Pagina_principal import dados_request as btc
 app = Blueprint("comando",__name__)
-
-def conectar_db():
-    return pymysql.connect(host="127.0.0.1",
-                    user="root",
-                    password=senha_db,
-                    database="Banco_de_Dados")
 
 def conectando_smtp():
     coneccao = smtplib.SMTP("smtp.gmail.com",587,timeout=8)
@@ -140,24 +134,13 @@ def Enviar_email(addres : str, nome : str, coneccao_smtp : smtplib.SMTP):
         print("erro",e)
 
 def Funcao_principal():
-    if not os.path.exists("arquivo_log.txt"):
-        with open("arquivo_log.txt","w") as arquivo_log:
-            arquivo_log.write("")
-        with conectar_db() as DB:            
-            DB.cursor()
-            cursor = DB.cursor()
-            cursor.execute("SELECT email,nome FROM usuarios")
-            data = cursor.fetchall()
             with conectando_smtp() as SMtp:
-                for User_mail,nome in data:
-                    if User_mail != ultimo_registro_de_envio and User_mail:
-                        ultimo_registro_de_envio = User_mail
-                        print("ultimooo",ultimo_registro_de_envio)
-                        Enviar_email(User_mail,nome,SMtp)
-                        print(f"enviou  {User_mail},{nome}")
+                for users in Usuarios.select():
+                    if users.email:
+                        Enviar_email(users.email,users.nome,SMtp)
+                        print(f"enviou  {users.email},{users.nome}")
                         sleep(4)
-        os.remove("arquivo_log.txt")
 
 if datetime.datetime.now().hour == 18 and datetime.datetime.now().minute == 25:
-    execucao_assincrona = threading.Thread(target=Funcao_principal)
-    execucao_assincrona.start()
+        execucao_assincrona = threading.Thread(target=Funcao_principal)
+        execucao_assincrona.start()

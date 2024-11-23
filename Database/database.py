@@ -16,3 +16,5 @@ class Usuarios(peewee.Model):
         database = db
 
 db.create_tables([Usuarios])
+
+db.close()
